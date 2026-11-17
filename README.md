@@ -21,4 +21,4 @@ Este repositório contém só o site publicado. Imagens dos exercícios: Free Ex
 - **Identificar aparelho**: foto do aparelho mostra o que é, como regular e os exercícios.
 - **Progressão automática**: o app sugere a carga do próximo treino.
 
-A leitura por foto usa a IA Claude. Para produção, publique o servidor da pasta `servidor/` (veja `servidor/LEIA-ME.md`).
+- **Conta do personal e plano Pro**: login por código no e-mail, alunos sincronizados entre aparelhos, plano grátis com 3 alunos e Pro vendido pela Hotmart. A configuração está em `supabase/CONFIGURAR.md`.

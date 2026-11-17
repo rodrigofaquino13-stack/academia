@@ -1,6 +1,0 @@
-name = "academia-ia"
-main = "worker.js"
-compatibility_date = "2026-11-01"
-
-[vars]
-ORIGENS = "https://rodrigofaquino13-stack.github.io"

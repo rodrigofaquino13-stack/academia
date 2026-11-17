@@ -1,0 +1,6 @@
+# Configuração usada pelo Supabase CLI (supabase functions deploy)
+[functions.ia]
+verify_jwt = false
+
+[functions.hotmart]
+verify_jwt = false
