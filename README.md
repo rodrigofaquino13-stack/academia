@@ -21,4 +21,5 @@ Este repositório contém só o site publicado. Imagens dos exercícios: Free Ex
 - **Identificar aparelho**: foto do aparelho mostra o que é, como regular e os exercícios.
 - **Progressão automática**: o app sugere a carga do próximo treino.
 
+- **Perfil do aluno**: diário (água, refeições, sono, energia, anotações), peso e medidas com gráfico, dieta com estimativa de metas e cadastro da academia. O personal pode mandar a dieta junto com o treino e recebe peso e adesão no relatório.
 - **Conta do personal e plano Pro**: login por código no e-mail, alunos sincronizados entre aparelhos, plano grátis com 3 alunos e Pro vendido pela Hotmart. A configuração está em `supabase/CONFIGURAR.md`.

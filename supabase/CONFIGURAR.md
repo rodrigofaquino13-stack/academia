@@ -5,7 +5,7 @@ Sem esta configuração o app funciona só no aparelho, como hoje. Com ela, o pe
 ## 1. Supabase (banco e login)
 
 1. Crie uma conta em supabase.com e um projeto novo (plano grátis, região São Paulo). Guarde a senha do banco.
-2. Em **SQL Editor**, cole todo o conteúdo de `migrations/20261117000000_academia.sql` e clique em **Run**.
+2. Em **SQL Editor**, rode os arquivos da pasta `migrations/` em ordem (cole o conteúdo e clique em **Run**): primeiro `20261117000000_academia.sql`, depois `20261117010000_perfil_aluno.sql`.
 3. Em **Authentication > Sign In / Providers**, deixe **Email** ligado.
 4. Em **Authentication > Emails > Templates**, nos modelos **Magic link** e **Confirm signup**, troque o texto por algo assim (o importante é o `{{ .Token }}`, que é o código que o personal digita no app):
 
