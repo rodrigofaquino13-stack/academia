@@ -16,9 +16,8 @@ Este repositório contém só o site publicado. Imagens dos exercícios: Free Ex
 
 ## Novidades
 
-- **Modo personal**: o personal cadastra alunos, monta as fichas (inclusive por foto) e manda o treino por link no WhatsApp. O aluno abre sem cadastro, com o nome e a cor do personal, e devolve o progresso por outro link.
-- **Ficha por foto**: fotografe a ficha de papel e a IA monta as fichas.
-- **Identificar aparelho**: foto do aparelho mostra o que é, como regular e os exercícios.
+- **Modo personal**: o personal cadastra alunos, monta as fichas e manda o treino por link no WhatsApp. O aluno abre sem cadastro, com o nome e a cor do personal, e devolve o progresso por outro link.
+- **Identificar aparelho**: foto do aparelho mostra o que é, como regular e os exercícios. Aparece só quando o servidor de IA está publicado (veja `supabase/CONFIGURAR.md`).
 - **Progressão automática**: o app sugere a carga do próximo treino.
 
 - **Perfil do aluno**: diário (água, refeições, remédios e suplementos, sono, energia, anotações), peso e medidas com gráfico, dieta com estimativa de metas e cadastro da academia. O personal pode mandar a dieta junto com o treino e recebe peso e adesão no relatório.

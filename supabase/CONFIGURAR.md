@@ -57,8 +57,11 @@ VITE_SUPABASE_URL=https://SEU_PROJECT_REF.supabase.co \
 VITE_SUPABASE_ANON_KEY=sua_chave_publica \
 VITE_CHECKOUT_URL=https://pay.hotmart.com/SEU_CODIGO \
 VITE_PRECO_PRO="R$ 39,90 por mês" \
+VITE_IA=1 \
 npm run build
 ```
+
+`VITE_IA=1` liga a identificação de aparelho por foto, que usa a função `ia` do passo 2. Sem essa linha o recurso fica escondido no app; o usuário nunca precisa colocar chave de API.
 
 ## Ajustes sem mexer no código
 
