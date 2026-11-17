@@ -1,0 +1,9 @@
+:root { color-scheme: dark; }
+body { margin: 0; background: #101216; color: #EEF0F3; font: 16px/1.65 'Archivo', system-ui, sans-serif; }
+main { max-width: 720px; margin: 0 auto; padding: 32px 20px 64px; }
+a { color: #8FA9FF; }
+h1 { font-size: 30px; line-height: 1.2; margin: 8px 0 4px; }
+h2 { font-size: 19px; margin: 28px 0 6px; }
+p, li { color: #C9CED6; }
+.data { color: #9BA2AE; font-size: 14px; }
+.voltar { display: inline-block; margin-bottom: 8px; font-weight: 600; text-decoration: none; }
