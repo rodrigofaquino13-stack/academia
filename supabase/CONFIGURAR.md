@@ -5,7 +5,7 @@ Sem esta configuração o app funciona só no aparelho, como hoje. Com ela, o pe
 ## 1. Supabase (banco e login)
 
 1. Crie uma conta em supabase.com e um projeto novo (plano grátis, região São Paulo). Guarde a senha do banco.
-2. Em **SQL Editor**, rode os arquivos da pasta `migrations/` em ordem (cole o conteúdo e clique em **Run**): primeiro `20261117000000_academia.sql`, depois `20261117010000_perfil_aluno.sql`.
+2. Em **SQL Editor**, rode os arquivos da pasta `migrations/` em ordem (cole o conteúdo e clique em **Run**): primeiro `20261117000000_academia.sql`, depois `20261117010000_perfil_aluno.sql` e por último `20261117020000_conta_usuario.sql`.
 3. Em **Authentication > Sign In / Providers**, deixe **Email** ligado.
 4. Em **Authentication > Emails > Templates**, nos modelos **Magic link** e **Confirm signup**, troque o texto por algo assim (o importante é o `{{ .Token }}`, que é o código que o personal digita no app):
 
@@ -17,6 +17,18 @@ Sem esta configuração o app funciona só no aparelho, como hoje. Com ela, o pe
 5. Em **Authentication > URL Configuration**, coloque em Site URL: `https://rodrigofaquino13-stack.github.io/academia/`
 6. Antes de lançar: em **Authentication > Emails > SMTP Settings**, ligue um serviço de e-mail próprio (Resend ou Brevo têm plano grátis). O envio padrão do Supabase manda poucos e-mails por hora e serve só para teste.
 7. Em **Project Settings > API**, copie a **Project URL** e a chave **anon / publishable**. Essa chave é pública (vai dentro do app). A chave **service_role / secret** nunca deve sair do Supabase.
+
+## 1b. Login com Google e Apple (opcional)
+
+**Google**
+1. Em console.cloud.google.com, crie um projeto (ex.: Academia).
+2. Em **Google Auth Platform**, preencha a marca (nome do app, e-mail de suporte), escolha público **Externo** e publique o app (os escopos de e-mail e perfil não exigem verificação).
+3. Em **Clientes**, crie um cliente OAuth do tipo **Aplicativo da Web** com o URI de redirecionamento `https://SEU_PROJECT_REF.supabase.co/auth/v1/callback`.
+4. No Supabase, em **Authentication > Sign In / Providers > Google**, ligue o provedor e cole o Client ID e o Client Secret.
+
+**Apple**: exige o Apple Developer Program (assinatura anual da Apple). Com ele, crie um Services ID com "Sign in with Apple" e configure em **Providers > Apple**.
+
+Depois, gere o app com `VITE_LOGIN=google` (ou `google,apple`) para os botões aparecerem.
 
 ## 2. Funções do servidor (IA e Hotmart)
 
@@ -58,6 +70,7 @@ VITE_SUPABASE_ANON_KEY=sua_chave_publica \
 VITE_CHECKOUT_URL=https://pay.hotmart.com/SEU_CODIGO \
 VITE_PRECO_PRO="R$ 39,90 por mês" \
 VITE_IA=1 \
+VITE_LOGIN=google \
 npm run build
 ```
 
