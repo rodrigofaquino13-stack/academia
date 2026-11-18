@@ -92,3 +92,10 @@ Na tabela `config` (Supabase > Table Editor):
 | ia_dia_pro | 60 | leituras por dia para personal Pro |
 
 Para dar Pro manualmente (cortesia, parceiro): em `assinaturas`, insira uma linha com o e-mail, status `ativa` e `valida_ate` vazio.
+
+
+## Lembretes por notificação
+
+1. Rode `migrations/20261118020000_lembretes_push.sql` (cria as tabelas e o agendamento a cada 15 min).
+2. Publique a função `push` (painel: Via editor, com o `_shared/cors.ts` embutido) e desligue "Verify JWT with legacy secret".
+3. Pronto: as chaves VAPID são criadas pela própria função na primeira chamada. No iPhone, o aluno precisa instalar o app na tela de início.
