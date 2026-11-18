@@ -99,3 +99,18 @@ Para dar Pro manualmente (cortesia, parceiro): em `assinaturas`, insira uma linh
 1. Rode `migrations/20261118020000_lembretes_push.sql` (cria as tabelas e o agendamento a cada 15 min).
 2. Publique a função `push` (painel: Via editor, com o `_shared/cors.ts` embutido) e desligue "Verify JWT with legacy secret".
 3. Pronto: as chaves VAPID são criadas pela própria função na primeira chamada. No iPhone, o aluno precisa instalar o app na tela de início.
+
+
+## Academias (white label)
+
+1. Rode `migrations/20261118030000_academias.sql` (já rodada em produção).
+2. O dono cria a academia no app: Ajustes > "Criar o app da minha academia" (nome, endereço, cor, logo, mensagem). Ganha 30 dias de teste.
+3. Links: alunos abrem `…/academia/?a=ENDERECO`; professores entram por `…/academia/?a=ENDERECO&prof=CODIGO` (o painel gera os dois).
+4. Quando a academia pagar, estenda a licença no SQL Editor:
+   `update academias set ativa_ate = now() + interval '1 month' where slug = 'ENDERECO';`
+   Com a licença vencida, o painel avisa e os professores voltam ao limite do plano grátis.
+
+## Demonstração para visitas
+
+Abra `…/academia/?demo` (ou `?demo&nome=Academia%20X&cor=E4572E`). Abre sem login, com dados fictícios guardados à parte no aparelho.
+A barra do topo troca a visão (Dono, Professor, Aluno), personaliza nome, cor e logo e mostra a tela de entrada do aluno. "Sair da demonstração" volta ao app normal.
