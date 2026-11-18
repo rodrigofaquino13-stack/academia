@@ -1,9 +1,16 @@
-// Leitura de fotos (ficha e aparelho) com a IA Claude. A chave da Anthropic fica só aqui.
+// IA Claude do app: fotos (ficha e aparelho) e avaliação de treino. A chave da Anthropic fica só aqui.
 import { createClient } from 'npm:@supabase/supabase-js@2'
 import { cabecalhosCors, json } from '../_shared/cors.ts'
 
-const admin = createClient(Deno.env.get('SUPABASE_URL')!, (Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? Deno.env.get('CHAVE_SERVICO'))!)
+function chaveServico(): string {
+  const legado = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? Deno.env.get('CHAVE_SERVICO')
+  if (legado) return legado
+  try { return Object.values(JSON.parse(Deno.env.get('SUPABASE_SECRET_KEYS') ?? '{}'))[0] as string } catch { return '' }
+}
+const admin = createClient(Deno.env.get('SUPABASE_URL')!, chaveServico())
 const MODELO = Deno.env.get('MODELO_IA') ?? 'claude-sonnet-5-5'
+// Pedidos só de texto (avaliação) usam um modelo mais rápido e barato
+const MODELO_RAPIDO = Deno.env.get('MODELO_IA_RAPIDO') ?? 'claude-haiku-5-5'
 
 async function hash(texto: string) {
   const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(texto))
@@ -40,7 +47,8 @@ Deno.serve(async (req) => {
   let corpo: Record<string, unknown>
   try { corpo = await req.json() } catch { return json({ erro: 'JSON inválido' }, 400, cors) }
   if (JSON.stringify(corpo).length > 6_000_000) return json({ erro: 'imagem grande demais' }, 413, cors)
-  corpo.model = MODELO
+  corpo.model = corpo.modelo === 'rapido' ? MODELO_RAPIDO : MODELO
+  delete corpo.modelo
   corpo.max_tokens = Math.min(Number(corpo.max_tokens) || 2048, 4096)
   delete corpo.stream
 

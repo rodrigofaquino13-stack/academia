@@ -41,6 +41,9 @@ supabase link --project-ref SEU_PROJECT_REF        # o código que aparece na Pr
 supabase secrets set ANTHROPIC_API_KEY=sk-ant-...  # chave criada em console.anthropic.com
 supabase secrets set ORIGENS=https://rodrigofaquino13-stack.github.io
 supabase functions deploy ia --no-verify-jwt
+# Pelo painel: Edge Functions > Deploy a new function > Via editor, cole o conteúdo de ia/index.ts
+# (com o _shared/cors.ts embutido), nome "ia", e desligue "Verify JWT with legacy secret".
+# Depois, gere o app com VITE_IA=1 para ligar a avaliação com IA e a ficha por foto.
 supabase functions deploy hotmart --no-verify-jwt
 ```
 
