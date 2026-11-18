@@ -20,6 +20,8 @@ Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors })
   if (req.method !== 'POST') return json({ erro: 'use POST' }, 405, cors)
   if (cors['Access-Control-Allow-Origin'] === 'null') return json({ erro: 'origem não permitida' }, 403, cors)
+  // Desligada até existir o segredo IA_LIGADA=1: assim não há gasto com a Anthropic
+  if (Deno.env.get('IA_LIGADA') !== '1') return json({ erro: 'ia_desligada' }, 503, cors)
 
   // Só conta logada (o app exige conta); limite diário pelo plano
   const token = (req.headers.get('Authorization') ?? '').replace(/^Bearer\s+/i, '')
