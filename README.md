@@ -1,4 +1,4 @@
-# Academia
+# Treino Feito
 
 App de treino de academia que funciona no navegador e pode ser instalado no celular.
 

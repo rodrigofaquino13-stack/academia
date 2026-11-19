@@ -10,7 +10,7 @@ Sem esta configuração o app funciona só no aparelho, como hoje. Com ela, o pe
 4. Em **Authentication > Emails > Templates**, nos modelos **Magic link** e **Confirm signup**, troque o texto por algo assim (o importante é o `{{ .Token }}`, que é o código que o personal digita no app):
 
    ```
-   <h2>Seu código para entrar no Academia</h2>
+   <h2>Seu código para entrar no Treino Feito</h2>
    <p style="font-size:28px;letter-spacing:4px"><b>{{ .Token }}</b></p>
    <p>Ele vale por 1 hora. Se não foi você, ignore este e-mail.</p>
    ```

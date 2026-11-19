@@ -7,13 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#101216" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-title" content="Academia" />
+    <meta name="apple-mobile-web-app-title" content="Treino Feito" />
     <meta name="description" content="Fichas de treino, demonstração de exercícios, registro de cargas e timer de descanso." />
-    <title>Academia</title>
-    <script type="module" crossorigin src="./assets/index-BNsvKcpU.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-ZPcuCk17.css">
+    <title>Treino Feito</title>
+    <script type="module" crossorigin src="./assets/index-BQmCA2vn.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BltjAnIJ.css">
   <link rel="manifest" href="./manifest.webmanifest"></head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div id="carregando" style="min-height:100dvh;display:grid;place-content:center;gap:16px;text-align:center;padding:24px;background:#101216;color:#C9CED6;font:400 1rem/1.5 system-ui,sans-serif">
+        <p id="carregando-txt" role="status" style="margin:0">Carregando…</p>
+        <button id="carregando-btn" hidden onclick="location.reload()" style="min-height:48px;padding:0 24px;border:0;border-radius:999px;background:#5B82FF;color:#101216;font:650 1rem system-ui,sans-serif">Tentar de novo</button>
+      </div>
+    </div>
+    <script>
+      // Se o app não abrir em 10 s, explica e oferece tentar de novo
+      setTimeout(function () {
+        var t = document.getElementById('carregando-txt'), b = document.getElementById('carregando-btn')
+        if (t && b) { t.textContent = 'Não deu para abrir o app. Confira a internet.'; b.hidden = false }
+      }, 10000)
+    </script>
   </body>
 </html>
